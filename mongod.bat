@@ -1,0 +1,1 @@
+"c:\Program Files\MongoDB\Server\3.0\bin\mongod.exe" --bind_ip=127.0.0.1 --dbpath=data --nojournal --rest

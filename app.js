@@ -1,17 +1,17 @@
-var PORT = process.env.PORT;
-var IP = process.env.IP;
+var PORT = process.env.PORT | 3000;
+var IP = process.env.IP ? process.env.IP : "localhost";
 
 var express = require("express");
 var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
 
 var db;
-
-if(process.env.ENV == "Test")
+if (process.env.ENV == "Test")
     db = mongoose.connect("mongodb://" + IP + "/bookAPI_test");
-else{
+else {
     db = mongoose.connect("mongodb://" + IP + "/bookAPI");
 }
+
 
 var Book = require("./models/bookModel");
 
@@ -29,8 +29,8 @@ app.get("/", function(req, res) {
 });
 
 app.listen(PORT, function() {
+    console.log("IP set to: " + IP);
     console.log("Running on port: " + PORT);
-    console.log("ip: " + process.env.IP);
 });
 
 module.exports = app;
