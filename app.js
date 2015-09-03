@@ -1,4 +1,4 @@
-var PORT = process.env.PORT | 3000;
+var PORT = process.env.PORT ? process.env.PORT : 3000;
 var IP = process.env.IP ? process.env.IP : "localhost";
 
 var express = require("express");
